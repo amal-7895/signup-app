@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تسجيل الطلاب - المنصة الأكاديمية</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <!-- مكتبة قصاصات الورق الملونة (Confetti) -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+
+    <!-- زر تبديل المظهر الليلي -->
+    <button class="theme-toggle" id="themeToggle" title="تبديل المظهر">🌙</button>
+
+    <!-- أشكال خلفية شفافة -->
+    <div class="bg-shape shape-1"></div>
+    <div class="bg-shape shape-2"></div>
+
+    <div class="container">
+        <!-- نموذج التسجيل -->
+        <div class="card" id="formCard">
+            <div class="card-header">
+                <div class="badge-icon">🚀</div>
+                <h2>أهلاً بك في عالم المستقبل!</h2>
+                <p>خطوتك الأولى تبدأ من هنا، املأ بياناتك للانضمام</p>
+            </div>
+            
+            <!-- شريط التقدم التفاعلي -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <form id="registrationForm">
+                <div class="input-group">
+                    <label for="fullName">اسم الطالب</label>
+                    <input type="text" id="fullName" class="track-input" placeholder="أدخل اسمك الثلاثي" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="age">العمر</label>
+                    <input type="number" id="age" class="track-input" placeholder="يجب أن يكون 17 سنة أو أكثر" min="1" required>
+                    <small id="ageError" class="error-text"></small>
+                </div>
+
+                <div class="input-group">
+                    <label for="specialization">التخصص</label>
+                    <select id="specialization" class="track-input" required>
+                        <option value="" disabled selected>اختر تخصصك الدراسي المفضل</option>
+                        <option value="هندسة البرمجيات وتطوير الويب">هندسة البرمجيات وتطوير الويب</option>
+                        <option value="الأمن السيبراني والشبكات">الأمن السيبراني والشبكات</option>
+                        <option value="الذكاء الاصطناعي وتكنولوجيا البيانات">الذكاء الاصطناعي وتكنولوجيا البيانات</option>
+                        <option value="إدارة الأعمال الرقمية">إدارة الأعمال الرقمية</option>
+                        <option value="التصميم الجرافيكي وفنون الوسائط">التصميم الجرافيكي وفنون الوسائط</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span id="btnText">ابدأ الرحلة الآن ✨</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- صفحة الترحيب -->
+        <div class="card welcome-card hidden" id="welcomeCard">
+            <div class="success-banner">
+                <span class="success-emoji">🎉</span>
+            </div>
+            <h2>تهانينا، تم قبولك بنجاح!</h2>
+            <p class="welcome-subtitle">نحن متحمسون جداً لرؤية إبداعاتك معنا.</p>
+            
+            <div class="info-box">
+                <div class="info-item">
+                    <span class="label">🆔 الرقم التعريفي:</span>
+                    <span id="resId" class="value highlight-id"></span>
+                </div>
+                <div class="info-item">
+                    <span class="label">👤 الاسم:</span>
+                    <span id="resName" class="value"></span>
+                </div>
+                <div class="info-item">
+                    <span class="label">⏳ العمر:</span>
+                    <span id="resAge" class="value"></span>
+                </div>
+                <div class="info-item">
+                    <span class="label">🎯 التخصص:</span>
+                    <span id="resSpecialization" class="value"></span>
+                </div>
+            </div>
+
+            <div class="action-buttons">
+                <button type="button" class="copy-btn" id="copyBtn">📋 نسخ تفاصيل التسجيل</button>
+                <button type="button" class="back-btn" id="resetBtn">تسجيل طالب جديد 🔄</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- عنصر الصوت -->
+    <audio id="successSound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
